@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Interview Questions</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a393a1c8-8c8f-46a4-8055-669e20debbe6" class="page sans"><header><h1 class="page-title">Interview Questions</h1><p class="page-description"></p></header><div class="page-body"><p id="fe2627a1-1288-42a5-a66b-b7ddf12dd698" class=""><strong>1. What is Version Control?</strong></p><p id="b4977db9-0d04-4558-a345-7b3fa497c78b" class="">Answer: Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. It allows you to revert files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something that might be causing a problem, and more.</p><p id="cd28375a-c7be-4dc9-aa8f-ac1e608f6beb" class=""><strong>2. What is Git and why is it used?</strong></p><p id="8cccf0d5-2761-4ebb-a3e4-392b5f4df379" class="">Answer: Git is a distributed version control system that tracks changes to a source code. It allows multiple developers to work on a project simultaneously, without overwriting each other&#x27;s changes. Git also keeps a complete history of all changes.</p><p id="4738ddc0-c7c3-46fd-8479-14385e5134d2" class=""><strong>3. What is a repository in Git?</strong></p><p id="a445dffb-91c2-4bd6-bfeb-a64ed0d8ecf1" class="">Answer: A repository in Git is a directory for your project. It contains all the project&#x27;s files and stores each file&#x27;s revision history. Repositories can have multiple collaborators and can be either public or private.</p><p id="49704e04-6a3b-4b6a-a6d6-12cd3aa18086" class=""><strong>4. What is the command to clone a repository in Git?</strong></p><p id="2794fd46-0080-44b8-b4fe-488b6a0fee87" class="">Answer: The command to clone a repository in Git is <code>git clone &lt;repository-url&gt;</code>. This command creates a local copy of the repository on your system.</p><p id="9d389b7b-ec5f-47f3-9d23-5346e0955fd4" class=""><strong>5. How do you stage and commit changes in Git?</strong></p><p id="37e1fe02-f1ed-4ff7-8f8b-5e38de66e49d" class="">Answer: To stage changes, you use the command <code>git add &lt;filename&gt;</code> or <code>git add .</code> to stage all changes. To commit these staged changes, you use the command <code>git commit -m &quot;Commit message&quot;</code>.</p><p id="85dff54d-35eb-4ddb-b37e-9e55d6711393" class=""><strong>6. What is the difference between &#x27;git pull&#x27; and &#x27;git fetch&#x27;?</strong></p><p id="3cb3c082-fa3e-4c82-85cf-f604940f3b2e" class="">Answer: <code>git pull</code> does a <code>git fetch</code> followed by a <code>git merge</code>. In other words, <code>git pull</code> retrieves the latest changes from the remote repository and merges them into your local branch. On the other hand, <code>git fetch</code> only retrieves the latest changes, but doesn&#x27;t merge them.</p><p id="b85662c3-e0a3-4953-b09d-a2bbf8fa7241" class=""><strong>7. What is a branch in Git?</strong></p><p id="fbfa640c-8e23-4bf1-a675-54da1aacb12e" class="">Answer: A branch in Git is an independent line of development. You can use branches to isolate work when you&#x27;re developing features or fixes. The default branch in Git is the <strong>main</strong> branch.</p><p id="4e3eb384-deb6-4b07-bd0f-6c15f1268e80" class=""><strong>8. How do you create and switch to a new branch in Git?</strong></p><p id="52b761c3-5548-4d08-b455-96ddfbc8ee0c" class="">Answer: To create a new branch, you use the command <code>git branch &lt;branch-name&gt;</code>. To switch to this branch, you use the command <code>git checkout &lt;branch-name&gt;</code>.</p><p id="7687a333-2317-42b8-9e4b-072dd24bfeca" class=""><strong>9. What is a merge conflict in Git and how can it be resolved?</strong></p><p id="cfab1cb4-6218-41f4-85c0-3c5b84995207" class="">Answer: A merge conflict occurs when Git is unable to automatically resolve differences in code between two commits. When a conflict happens, Git will pause the merge and ask you to resolve the conflict. You resolve the conflict by manually editing the conflicted file, then you add the resolved file to staging using <code>git add &lt;filename&gt;</code>, and commit it using <code>git commit</code>.</p><p id="b1f6c84e-0400-4c1a-9d17-e0947d698016" class=""><strong>10. What is GitHub and how is it related to Git?</strong></p><p id="95dc91d2-38c9-4014-8fc5-93aa3381e1fa" class="">Answer: GitHub is a web-based hosting service for Git repositories. It provides a web-based graphical interface and access control, along with several collaboration features like repositories, branches, commits, Pull Requests, and more.</p><p id="3b73cca8-3a56-42ad-801e-3a3c683c70cf" class=""><strong>11. What is a Pull Request on GitHub?</strong></p><p id="427d8eb1-316f-4e0c-ae91-b783758247cc" class="">Answer: A Pull Request is a feature on GitHub where a developer can contribute to a project by making changes to the project&#x27;s repository and then asking the project&#x27;s owner to review and pull in their contribution.</p><p id="44df02c7-1038-44de-b09e-336b22d8dd09" class=""><strong>12. How do you handle a large Pull Request on GitHub?</strong></p><p id="2347602f-7969-4569-84f2-a63b2c1b7cb8" class="">Answer: Large Pull Requests can be difficult to review. It&#x27;s better to split them into smaller, logical chunks. If a large Pull Request is unavoidable, you can use GitHub&#x27;s review feature to comment on specific lines or sections, and use the &#x27;Files changed&#x27; tab to get an overview of changes.</p><p id="99d94e9c-ed61-4a89-9cae-4b87d1afb390" class=""><strong>13. What are Git hooks?</strong></p><p id="e3621e7f-12fc-4e98-a5fe-2bd5152e3037" class="">Answer: Git hooks are scripts that Git executes before or after events such as commit, push, and receive. They are used for automating tasks in the development workflow, like running tests before a commit.</p><p id="2fff3aeb-79c3-40d7-8e4c-a7c3d0891225" class=""><strong>14. What is Git rebase and how is it different from merge?</strong></p><p id="19a39983-79f2-4cd6-8427-9c37c77dd5d2" class="">Answer: Git rebase is a command that allows you to move or combine a sequence of commits to a new base commit. It&#x27;s different from merge, as merging takes the contents of a source branch and integrates it with the target branch, while rebasing moves or combines the commits to the target branch.</p><p id="3c964411-76b7-407f-80ec-60c2593efb21" class=""><strong>15. What is a Git Stash?</strong></p><p id="e4a200b8-3d49-41df-bee8-2b7b47671fd2" class="">Answer: Git stash takes your modified tracked files and saves them on a stack of unfinished changes that you can reapply at any time. It&#x27;s useful when you want to switch branches, but you&#x27;re in the middle of a change and aren&#x27;t ready to commit.</p><p id="4d007dd8-fb3f-4798-8f9d-fff6efbd9e15" class=""><strong>16. How do you stash changes in Git?</strong></p><p id="25065f06-c3f9-4213-85d8-58fc832ae510" class="">Answer: You can stash changes using the command <code>git stash save &quot;Your message&quot;</code>. This command temporarily saves the changes, which can be re-applied later.</p><p id="fb8f3823-0f86-4486-a2d4-38646b947b94" class=""><strong>17. What is a .gitignore file?</strong></p><p id="291cfb0e-956d-42e8-9678-1f10fc6a0a2a" class="">Answer: A .gitignore file is a file that Git has been instructed to ignore. It should be placed in the root directory for the repository. This is useful for files or directories that you don&#x27;t want Git to track or include in your repository&#x27;s commits.</p><p id="a2a64d73-cc47-4f99-a291-8a7c6f6de8e7" class=""><strong>18. How do you revert a commit in Git?</strong></p><p id="38040dd9-bfbe-40f0-b11a-35cc470f8219" class="">Answer: You can revert a commit in Git using the command <code>git revert &lt;commit-id&gt;</code>. This command creates a new commit that undoes the changes made in the specified commit.</p><p id="64d322b2-1584-4210-9006-bcf6823f67ff" class=""><strong>19. What is cherry-pick in Git?</strong></p><p id="304a08fc-d2c1-4951-b3a0-bcbb58386169" class="">Answer: Cherry-picking in Git means to choose a commit from one branch and apply it onto another. This is useful if you made a mistake and committed a change into the wrong branch, but don&#x27;t want to merge the entire branch. You can do this with the command <code>git cherry-pick &lt;commit-id&gt;</code>.</p><p id="27a716da-5774-436d-9830-7412cf431f81" class=""><strong>20. What is the HEAD in Git?</strong></p><p id="1cf17e7d-fac4-4076-83cb-97d1fcb7cb58" class="">Answer: HEAD is a reference to the last commit in the currently checked-out branch in Git. You can think of the HEAD as the &quot;current branch&quot;.</p><p id="517f7227-9373-42fa-b5ee-20f6e5b24c3e" class=""><strong>21. How do you view the commit history in Git?</strong></p><p id="f1fcdbd6-d934-4833-86fb-246789e2a84b" class="">Answer: You can view the commit history in Git using the command <code>git log</code>. This command shows a list of all commits made to the current branch.</p><p id="a17856b6-0455-4a1b-a76e-b4adee152983" class=""><strong>22. What is the difference between a &quot;fork&quot; and a &quot;clone&quot; in GitHub?</strong></p><p id="e1b8c030-f6ea-4811-bc3d-071ab2b5eea4" class="">Answer: A &quot;clone&quot; is a copy of a repository that lives on your computer instead of on a website&#x27;s server somewhere, or the act of making that copy. A &quot;fork&quot; is a copy of a repository that lives on your GitHub account instead of the account you&#x27;re viewing, or the act of making that copy.</p><p id="3010707f-d6fb-4502-96d9-67a0cca7b65b" class=""><strong>23. What is a bare repository in Git?</strong></p><p id="280f1d98-317b-47d5-a9cd-0870f1f832b3" class="">Answer: A bare repository in Git is a repository that only contains the .git folder and no working directory. It doesn&#x27;t contain any checked-out source code files.</p><p id="4246d050-1746-4bbc-8d9f-9fe80a3d0e3c" class=""><strong>24. How do you squash commits in Git?</strong></p><p id="417b8c39-067d-4e9e-afac-08d3069fd66e" class="">Answer: Squashing is the act of condensing multiple commits into a single commit. This is often done to clean up a messy history before merging a feature branch into main. You can squash commits using <code>git rebase -i HEAD~&lt;number-of-commits&gt;</code>.</p><p id="bed6f806-0633-4570-97d6-1b496f53b2de" class=""><strong>25. What is Git bisect and how can it be useful?</strong></p><p id="8bb3d370-3dcb-49b1-8a18-80c0aac9d4c4" class="">Answer: Git bisect is a powerful tool in Git that uses a binary search algorithm to find which commit in your project&#x27;s history introduced a bug. You use it by first telling it a &quot;bad&quot; commit that is known to contain the bug, and a &quot;good&quot; commit that is known to be before the bug was introduced. Git bisect then checks out a commit in the middle of that range, and you tell it whether the checked-out commit is good or bad. It continues narrowing down the range until it finds the exact commit that introduced the bug.</p><p id="1496eae4-cf89-4dfe-93bb-ba4a43204a79" class=""><strong>26. What are the different states of a file in Git?</strong></p><p id="53f84d87-7441-4b2a-896d-15cbca58be1d" class="">Answer: In Git, a file can be in one of three states: modified, staged, and committed. Modified means that you have changed the file but have not committed it to your database yet. Staged means that you have marked a modified file in its current version to go into your next commit snapshot. Committed means that the data is safely stored in your local database.</p><p id="1f50f328-c834-42e8-838b-903255a09a5e" class=""><strong>27. How do you rename a branch in Git?</strong></p><p id="9a655d86-4d08-47b9-afc3-eda3fa029b8c" class="">Answer: You can rename a branch in Git using the command <code>git branch -m &lt;old-name&gt; &lt;new-name&gt;</code>. If you are on the branch you want to rename, you can use <code>git branch -m &lt;new-name&gt;</code>.</p><p id="6a4769d5-79be-4065-8252-a371de033887" class=""><strong>28. What is the use of &#x27;git config&#x27; command?</strong></p><p id="ffeea427-6ac9-4a7e-bff6-1f1b8bc8738a" class="">Answer: The &#x27;git config&#x27; command is used to set or get configuration variables that control all aspects of how Git looks and operates. These variables can be stored in three different places: /etc/gitconfig file (contains values for every user on the system and all their repositories), ~/.gitconfig file (specific to your user), and the config file in the git directory (repo-specific config file).</p><p id="4524dd54-1b9b-4f9d-ab35-db28180a674d" class=""><strong>29. How do you remove a file from Git without removing it from your file system?</strong></p><p id="c884c70d-5655-4f9d-9fa4-3cdd0f53397c" class="">Answer: You can remove a file from Git without removing it from your file system using the command <code>git rm --cached &lt;file&gt;</code>. This command stages the removal of the file from the repository, but leaves it on disk.</p><p id="01a9ad11-963a-41a9-a5b7-b7c45749cc34" class=""><strong>30. What is a conflict in Git and how can it be resolved?</strong></p><p id="ebe4e101-e483-4ebc-a80b-b3f4cdd319e3" class="">Answer: A conflict in Git arises when two branches have changed the same part of the same file, and then those branches are merged together. For example, if you make a change on a branch, and someone else made a different change on a different branch to the same part of the same file, Git won&#x27;t be able to figure out which change should take precedence. Conflicts are resolved by editing the files to fix the conflicting changes and then adding the resolved files by running <code>git add</code>, and then committing the resolved changes with <code>git commit</code>.</p><p id="8100ad06-693a-4e82-a967-874e2dba3b3a" class=""><strong>31. What is the difference between &#x27;git stash pop&#x27; and &#x27;git stash apply&#x27;?</strong></p><p id="b6ca5ac3-7318-47fb-919e-e991af09130e" class="">Answer: When you execute &#x27;git stash pop&#x27;, it will apply the stashed changes to your current working directory and also remove the stashed item from your stash list. On the other hand, &#x27;git stash apply&#x27; will apply the stashed changes and leave the stash in your stash list.</p><p id="05657d44-f73b-42c5-9f30-a466f5baffe6" class=""><strong>32. What is the use of &#x27;git log --grep&#x27;?</strong></p><p id="39ba8f38-ce2f-4961-875c-625034962133" class="">Answer: The &#x27;git log --grep&#x27; command is used to search for commits with a commit message that matches the pattern. This can be useful if you&#x27;re looking for a specific commit but only remember part of the commit message.</p><p id="726c95c0-0e71-4b91-9891-c4900554d5cf" class=""><strong>33. What is the use of &#x27;git reset&#x27;?</strong></p><p id="59b176ec-5adb-4e2b-9eef-f663cb9c12be" class="">Answer: The &#x27;git reset&#x27; command is used to reset your current HEAD to the specified state. It can be used to unstage files, undo commits, or to completely reset your repository to a previous commit.</p><p id="a2d048dc-6715-456d-9ff2-efebb578ad2b" class=""><strong>34. What is the difference between &#x27;git remote&#x27; and &#x27;git clone&#x27;?</strong></p><p id="16b476cb-3f3b-4fee-9615-42218404c1df" class="">Answer: The &#x27;git remote&#x27; command allows you to create, view, and delete connections to other repositories. &#x27;git clone&#x27;, on the other hand, is used to target an existing repository and create a clone, or copy of the target repository.</p><p id="1dbfb404-41bf-4736-9231-0e90b4e6a77b" class=""><strong>35. What is the use of &#x27;git tag&#x27;?</strong></p><p id="d714a1a0-7abb-40df-a782-7323ed56f43f" class="">Answer: &#x27;git tag&#x27; is used to capture a point in history that is used to mark a specific point in the repository&#x27;s history as being important. Typically, people use this functionality to mark release points (v1.0, and so on).</p><p id="e1c80d36-baad-4cbf-a910-08f97c3831b5" class=""><strong>36. What is the use of &#x27;git push&#x27; command?</strong></p><p id="0f99cb54-c5c2-49be-8f2d-2cdabb0467e0" class="">Answer: The &#x27;git push&#x27; command is used to push changes from the local repository to the remote repository. It transfers commits made on the local branch to a remote repository.</p><p id="6b252368-f21d-4081-bd5b-fd9836dd1f37" class=""><strong>37. What is the use of &#x27;git rm&#x27;?</strong></p><p id="883b7497-0e8e-4a49-9778-5609f5db3ae5" class="">Answer: The &#x27;git rm&#x27; command is used to remove files from the staging area and the working directory. It tells Git to stop tracking the file and also removes the file from your working directory.</p><p id="acd3a98f-ecc3-4679-abf6-cd27880bf369" class=""><strong>38. What is the use of &#x27;git stash drop&#x27;?</strong></p><p id="4b94a39d-cb5d-4484-8928-eab10e89060c" class="">Answer: The &#x27;git stash drop&#x27; command is used to remove a stashed change. If you do not provide a stash, it will remove the latest one.</p><p id="0d1fbd53-8488-4f70-bf94-8180484e09f4" class=""><strong>39. What is the use of &#x27;git show&#x27;?</strong></p><p id="b6d8aa78-781e-4f4d-baa8-1c9d87599cc4" class="">Answer: The &#x27;git show&#x27; command is used to view information about any git object. By default, it shows the changes made in the last commit.</p><p id="6eac761f-8d80-4df9-a0fa-3a845e2c8695" class=""><strong>40. What is the use of &#x27;git diff&#x27;?</strong></p><p id="5bfa00c2-632e-4651-8d69-5c8ce0b3de33" class="">Answer: The &#x27;git diff&#x27; command is used to show changes between commits, commit and working tree, etc. It shows the changes which are not yet staged.</p><p id="5394d1bd-e548-4593-98eb-085faa7b91b1" class=""><strong>41. What is the use of &#x27;git branch -d&#x27; and &#x27;git branch -D&#x27;?</strong></p><p id="d1c137eb-de03-42d2-ab4b-d925c262613d" class="">Answer: The &#x27;git branch -d&#x27; command is used to delete a branch. It will not let you delete the branch if it has unmerged changes. On the other hand, &#x27;git branch -D&#x27; is used to force delete the branch, regardless of whether it has unmerged changes or not.</p><p id="212e453d-0d05-41e9-a25a-31bc3c0a5158" class=""><strong>42. What is the use of &#x27;git fetch&#x27;?</strong></p><p id="faf395cc-a74c-4e09-a3e2-17ff792ab47e" class="">Answer: The &#x27;git fetch&#x27; command is used to download commits, files, and refs from a remote repository to your local repository. It fetches all the changes but does not merge them with your current branch.</p><p id="65dbcb92-e953-49e6-88ed-680112b79c45" class=""><strong>43. What is the use of &#x27;git merge&#x27;?</strong></p><p id="43806498-754a-415d-a4b8-598badb5d2b2" class="">Answer: The &#x27;git merge&#x27; command is used to merge branches. It takes the contents of a source branch and integrates it with the target branch.</p><p id="16fb9a3a-f298-4446-a63b-5df207ebaed7" class=""><strong>44. What is the use of &#x27;git rebase&#x27;?</strong></p><p id="0fe7630f-36a7-4041-a88c-369f53e88997" class="">Answer: The &#x27;git rebase&#x27; command is used to move or combine a sequence of commits to a new base commit. It is a way to integrate changes from one branch into another.</p><p id="ee914f99-ee6d-4af9-8c7c-9b77e1ac1528" class=""><strong>45. What is the use of &#x27;git cherry-pick&#x27;?</strong></p><p id="24a1b34c-5a7d-4f0b-a378-3b794322ea7a" class="">Answer: The &#x27;git cherry-pick&#x27; command is used to apply the changes introduced by some existing commits. It applies the changes added by the commit at the tip of the current branch.</p><p id="23dfb37f-20e7-48b0-933c-4d5efdf8f618" class=""><strong>46. How would you revert a commit that has already been pushed and made public?</strong></p><p id="f6764f14-256b-4f23-b3f1-e29d6e1f7268" class="">Answer: One way to revert a commit that has been pushed and made public is to use the <code>git revert &lt;commit-id&gt;</code> command. This will create a new commit that undoes the changes made in the specified commit. This is a safe way to undo changes, as it doesn&#x27;t alter the existing commit history.</p><p id="4eea1c69-3270-4174-b655-2fa5aa0afb0e" class=""><strong>47. How would you resolve a bug in production while working on a new feature?</strong></p><p id="b64ad3a7-a5fe-4a59-a979-810551571431" class="">Answer: You can use Git branches to handle this situation. First, you would commit your changes on the feature branch. Then, switch to the production branch and create a new branch for bug fixing. After fixing the bug and testing it, you can merge the bug fix branch back to the production branch. Then, switch back to your feature branch to continue working on the new feature.</p><p id="3217d1bf-ee32-46ad-ad2c-26c7f1ece661" class=""><strong>48. How would you handle a situation where you need to work on a project with a team of developers?</strong></p><p id="14d2cdb1-7a77-40cb-bf92-384651ea565c" class="">Answer: Git is designed to handle this scenario. Each developer would clone the repository and work locally on their own feature branches. When a developer is ready to share their work, they would push their branch to the remote repository and create a Pull Request. The team can then review the changes, discuss modifications if necessary, and then merge the changes into the main branch.</p><p id="602f6222-1555-4618-bfa6-c6457cdefb3c" class=""><strong>49. How would you keep your forked repository updated with the original repository?</strong></p><p id="c7d670cc-d4c8-4f18-b172-7e5b348e04d0" class="">Answer: You can do this by adding the original repository as a remote using <code>git remote add upstream &lt;original-repo-url&gt;</code>. Then, you can fetch all the branches from the upstream repository using <code>git fetch upstream</code>, and merge the changes from the upstream&#x27;s main branch into your local main branch using <code>git merge upstream/main</code>.</p><p id="75a6cb83-6f5b-4f29-97ff-3ac4d6031a06" class=""><strong>50. How would you clean up your feature branch after it has been merged into the main branch?</strong></p><p id="3e64bede-efee-4633-becf-b904c33d9b8d" class="">Answer: After your feature branch has been merged and you no longer need it, you can delete it to keep your working directory clean. You can delete the local branch using <code>git branch -d &lt;branch-name&gt;</code> and the remote branch using <code>git push origin --delete &lt;branch-name&gt;</code>.</p><p id="823bf85e-2d8e-4158-a9e9-89b418a8a00f" class=""><strong>51. How would you handle a situation where you need to undo a commit that was made a while ago?</strong></p><p id="51c13274-34b8-4114-8ca2-3b3b51f0dd7b" class="">Answer: You can use the <code>git revert &lt;commit-id&gt;</code> command to undo an old commit. This will create a new commit that undoes the changes made in the specified commit. If you need to undo multiple commits, you can use the <code>git rebase -i</code> command and drop the commits you want to undo.</p><p id="02400fbf-8080-4cac-b613-e0fa117e13bd" class=""><strong>52. How would you handle a situation where you accidentally committed changes to the wrong branch?</strong></p><p id="30e1b72c-5573-4815-9dec-e32a5a74c12a" class="">Answer: You can use the <code>git cherry-pick</code> command to apply these changes to the correct branch. First, note down the commit id of the wrong commit. Then, switch to the correct branch and run <code>git cherry-pick &lt;commit-id&gt;</code>. This will apply the changes to the correct branch. Then, you can go back to the wrong branch and undo the wrong commit using <code>git reset --hard HEAD~1</code>.</p><p id="e9135b7a-5cb1-4c83-9d2c-0d90e8a4bc34" class=""><strong>53. How would you resolve a merge conflict in Git?</strong></p><p id="7e875af7-ee4b-436e-aff7-53a8c540e389" class="">Answer: Merge conflicts occur when the same part of a file is modified in two different branches and then those branches are merged. To resolve the conflict, you need to manually edit the conflicted files to decide which changes to keep. After resolving the conflict, you add the resolved files to the staging area using <code>git add</code>, and then commit the resolved changes using <code>git commit</code>.</p><p id="8231019a-e05b-4240-b6f4-edd3727c29a8" class=""><strong>54. How would you handle a situation where you need to work on multiple features at the same time?</strong></p><p id="3d572285-8110-4865-9fac-7f657dbc2776" class="">Answer: You can use Git branches to work on multiple features simultaneously. Create a separate branch for each feature. This way, you can switch between branches to work on different features. Once a feature is completed and tested, you can merge it back into the main branch.</p><p id="c350e38b-36ae-4b84-930e-b64bd7807bc0" class=""><strong>55. How would you handle a situation where you need to temporarily switch from the task you are working on to another task?</strong></p><p id="3d24baa8-b097-4a38-99a9-0580ca37fb98" class="">Answer: You can use the <code>git stash</code> command to save your changes without committing them. This allows you to switch to another branch and work on a different task. When you are ready to go back to the original task, you can use <code>git stash pop</code> to reapply the stashed changes.</p><p id="9563a863-b23a-4902-8387-85186836a6e6" class=""><strong>56. How would you handle a situation where you need to collaborate with a team on a project, but you don&#x27;t want to share all the changes until they are complete?</strong></p><p id="4a91599c-0ccd-4276-be98-402e9616a030" class="">Answer: You can use a fork of the main repository or a separate feature branch for this purpose. Make all the changes in your fork or feature branch. Once the changes are complete and tested, you can create a Pull Request to merge your changes into the main repository.</p><p id="a635eb3b-e38e-48c7-bdd9-8c2d29fbc647" class=""><strong>57. How would you handle a situation where you made a commit, but then realized you made a mistake in your commit message?</strong></p><p id="fa93005e-65af-4198-bfde-bcbe15da38b9" class="">Answer: If you haven&#x27;t pushed the commit to the remote repository yet, you can amend the commit message using <code>git commit --amend</code>. This allows you to modify the most recent commit message. If you have already pushed the commit, you would have to force push the amended commit using <code>git push --force</code>, but this can cause problems for others who have cloned or forked your repository, so use with caution.</p><p id="1de96ee7-39ea-4cd3-bd09-28a50c549e94" class=""><strong>58. How would you handle a situation where you need to find out when a specific change was made and who made the change?</strong></p><p id="b79f6a3c-d1b0-4257-874d-13ba2c996ac7" class="">Answer: You can use the <code>git blame &lt;file&gt;</code> command. This shows line-by-line annotation of the specified file, indicating which commit was the last to modify each line. This can help you find out when a specific change was made and who made the change.</p><p id="5292c4f9-d474-4b8a-9cc6-c8b7afd94ef1" class="">
+</p><p id="1adbcfcc-c569-421a-9ad4-a78756476855" class=""><a href="https://www.interviewbit.com/git-interview-questions/">https://www.interviewbit.com/git-interview-questions/</a></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
